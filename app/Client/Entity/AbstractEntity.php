@@ -39,25 +39,4 @@ abstract class AbstractEntity
             }
         }
     }
-
-    /**
-     * @return array
-     */
-    public function toArray(): array
-    {
-        $settings = [];
-        $called = static::class;
-
-        $reflection = new ReflectionClass($called);
-        $properties = $reflection->getProperties(ReflectionProperty::IS_PUBLIC);
-
-        foreach ($properties as $property) {
-            $prop = $property->getName();
-            if (isset($this->$prop) && $property->class == $called) {
-                $settings[strtoupper($prop)] = $this->$prop;
-            }
-        }
-
-        return $settings;
-    }
 }

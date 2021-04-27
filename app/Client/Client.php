@@ -2,7 +2,7 @@
 
 namespace App\Client;
 
-use App\Client\Api\Decision;
+use App\Client\Api\Test;
 use Bitrix\Main\Config\Option;
 use Bitrix\Main\Web\HttpClient;
 
@@ -18,9 +18,9 @@ class Client
      */
     const BASE_URL = 'http://127.0.0.1/';
 
-    public function decision(): Decision
+    public function test(): Test
     {
-        return new Decision($this);
+        return new Test($this);
     }
 
     /**
